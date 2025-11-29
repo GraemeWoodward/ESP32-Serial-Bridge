@@ -5,8 +5,8 @@
 
 
 // Only *ONE* of the following modes can be enabled - pick one, comment out the other.
-//#define MODE_AP         // Access point mode: terminal connects directly to the ESP
-#define MODE_STA  // Station mode - both radar and terminal are stations, connected via another access point.
+#define MODE_AP         // Access point mode: terminal connects directly to the ESP
+//#define MODE_STA  // Station mode - both radar and terminal are stations, connected via another access point.
 
 #define PROTOCOL_TCP
 
