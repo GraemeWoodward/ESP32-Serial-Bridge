@@ -8,6 +8,10 @@
 // Simplified to address just the one UART, the default Serial0
 // Bluetooth disabled, as ESP32S3 only support BLE, for which the BluetoothSerial libaray doesn't work
 // Echos all traffic out the default Serial line (USB connection)
+
+// Tested to work in AP mode, i.e. RADAR becomes access point (see config.h for SSID and p/w)
+// Legacy code for STATION mode, untested.  Use WiFiTelnetToSerial instead, which has been tested (and uses
+// more advanced WiFiMulti library)
 //
 // Note the OTA handler option has not been touched - not tested / don't know if it is appropriate to use.
 
@@ -66,10 +70,12 @@ void setup() {
   // STATION mode (ESP connects to router and gets an IP)
   // Assuming phone is also connected to that router
   // from RoboRemo you must connect to the IP of the ESP
+
+
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, pw);
 
-  Serial.print("try to Connect to Wireless network: ");
+  Serial.print("Try to Connect to Wireless network: ");
   Serial.println(ssid);
     
   while (WiFi.status() != WL_CONNECTED) {   
